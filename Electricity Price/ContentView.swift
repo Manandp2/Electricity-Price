@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("electricityPrice") var electricityPrice: Double = Double.nan
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName: "bolt.fill")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("\(electricityPrice.isNaN ? "Fetching Price" : electricityPrice.formatted() + " cents")")
+                .task {
+                    await PriceFetcher.shared.updatePrice()
+                }
         }
         .padding()
     }
+    
 }
 
 #Preview {
