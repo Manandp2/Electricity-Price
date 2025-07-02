@@ -14,9 +14,6 @@ struct PriceResponse: Decodable {
 }
 
 class PriceFetcher {
-    static let shared = PriceFetcher()
-    
-    private init() {}
     
     static var price: Double? {
         UserDefaults.standard.object(forKey: "electricityPrice") as? Double? ?? nil
@@ -38,32 +35,5 @@ class PriceFetcher {
             UserDefaults.standard.set(price, forKey: "electricityPrice")
         }
         return price
-    }
-
-    func updatePrice() async {
-        print(">>> Updating electricity price at \(Date())\n")
-        let url = URL(string: "https://hourlypricing.comed.com/api?type=currenthouraverage")!
-
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else {
-                print("No data")
-                return
-            }
-            let data_response = try! JSONDecoder().decode([PriceResponse].self, from: data)
-
-            let price = Double(data_response[0].price) ?? Double.nan
-            UserDefaults.standard.set(price, forKey: "electricityPrice")
-        }
-
-        task.resume()
-
-        let request = BGAppRefreshTaskRequest(identifier: "ELECTRICITY_PRICE")
-        request.earliestBeginDate = Date(timeIntervalSinceNow: 60 * 5)  // 5 minutes from now (system may delay)
-        do {
-            try BGTaskScheduler.shared.submit(request)
-            print("Scheduled next refresh for \(Date(timeIntervalSinceNow: 60 * 5))")
-        } catch {
-            print("Could not schedule app refresh: \(error)")
-        }
     }
 }

@@ -31,7 +31,7 @@ struct ContentView: View {
             .padding()
             .onTapGesture {
                 Task {
-                    await PriceFetcher.shared.updatePrice()
+                    await PriceFetcher.fetchPrice()
                 }
             }
             .overlay(
@@ -45,13 +45,13 @@ struct ContentView: View {
                         Text("\(electricityPrice!.formatted())")
                             .font(.largeTitle)
                             .task {
-                                await PriceFetcher.shared.updatePrice()
+                                await _ = PriceFetcher.fetchPrice()
                             }
                     } else {
                         Text("Loading...")
                             .font(.system(size: 100))
                             .task {
-                                await PriceFetcher.shared.updatePrice()
+                                await _ = PriceFetcher.fetchPrice()
                             }
                     }
                 }

@@ -19,7 +19,7 @@ struct Electricity_PriceApp: App {
             ContentView()
         }
         .backgroundTask(.appRefresh("ELECTRICITY_PRICE")) {
-            await PriceFetcher.shared.updatePrice()
+            await _ = PriceFetcher.fetchPrice()
         }
     }
 }
