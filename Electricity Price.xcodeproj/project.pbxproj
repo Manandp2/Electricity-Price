@@ -6,14 +6,75 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0BB97ABE2DF639F100B79F9F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB97ABD2DF639F100B79F9F /* WidgetKit.framework */; };
+		0BB97AC02DF639F100B79F9F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB97ABF2DF639F100B79F9F /* SwiftUI.framework */; };
+		0BB97ACD2DF639F300B79F9F /* Price WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0BB97ABB2DF639F100B79F9F /* Price WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0BB97ACB2DF639F300B79F9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B7D18302DF222A3008CD0A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BB97ABA2DF639F100B79F9F;
+			remoteInfo = "Price WidgetExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0BB97AD22DF639F300B79F9F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0BB97ACD2DF639F300B79F9F /* Price WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0B7D18382DF222A3008CD0A5 /* Electricity Price.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Electricity Price.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BB97ABB2DF639F100B79F9F /* Price WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Price WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BB97ABD2DF639F100B79F9F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0BB97ABF2DF639F100B79F9F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0B698D142E141745005DA76D /* Exceptions for "Electricity Price" folder in "Price WidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				PriceFetcher.swift,
+			);
+			target = 0BB97ABA2DF639F100B79F9F /* Price WidgetExtension */;
+		};
+		0BB97ACE2DF639F300B79F9F /* Exceptions for "Price Widget" folder in "Price WidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0BB97ABA2DF639F100B79F9F /* Price WidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0B7D183A2DF222A3008CD0A5 /* Electricity Price */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0B698D142E141745005DA76D /* Exceptions for "Electricity Price" folder in "Price WidgetExtension" target */,
+			);
 			path = "Electricity Price";
+			sourceTree = "<group>";
+		};
+		0BB97AC12DF639F100B79F9F /* Price Widget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0BB97ACE2DF639F300B79F9F /* Exceptions for "Price Widget" folder in "Price WidgetExtension" target */,
+			);
+			path = "Price Widget";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +87,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BB97AB82DF639F100B79F9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BB97AC02DF639F100B79F9F /* SwiftUI.framework in Frameworks */,
+				0BB97ABE2DF639F100B79F9F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				0B7D183A2DF222A3008CD0A5 /* Electricity Price */,
+				0BB97AC12DF639F100B79F9F /* Price Widget */,
+				0BB97ABC2DF639F100B79F9F /* Frameworks */,
 				0B7D18392DF222A3008CD0A5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +113,18 @@
 			isa = PBXGroup;
 			children = (
 				0B7D18382DF222A3008CD0A5 /* Electricity Price.app */,
+				0BB97ABB2DF639F100B79F9F /* Price WidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0BB97ABC2DF639F100B79F9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BB97ABD2DF639F100B79F9F /* WidgetKit.framework */,
+				0BB97ABF2DF639F100B79F9F /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +137,12 @@
 				0B7D18342DF222A3008CD0A5 /* Sources */,
 				0B7D18352DF222A3008CD0A5 /* Frameworks */,
 				0B7D18362DF222A3008CD0A5 /* Resources */,
+				0BB97AD22DF639F300B79F9F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0BB97ACC2DF639F300B79F9F /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				0B7D183A2DF222A3008CD0A5 /* Electricity Price */,
@@ -70,6 +154,28 @@
 			productReference = 0B7D18382DF222A3008CD0A5 /* Electricity Price.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0BB97ABA2DF639F100B79F9F /* Price WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BB97ACF2DF639F300B79F9F /* Build configuration list for PBXNativeTarget "Price WidgetExtension" */;
+			buildPhases = (
+				0BB97AB72DF639F100B79F9F /* Sources */,
+				0BB97AB82DF639F100B79F9F /* Frameworks */,
+				0BB97AB92DF639F100B79F9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0BB97AC12DF639F100B79F9F /* Price Widget */,
+			);
+			name = "Price WidgetExtension";
+			packageProductDependencies = (
+			);
+			productName = "Price WidgetExtension";
+			productReference = 0BB97ABB2DF639F100B79F9F /* Price WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -78,9 +184,12 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					0B7D18372DF222A3008CD0A5 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					0BB97ABA2DF639F100B79F9F = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
@@ -100,12 +209,20 @@
 			projectRoot = "";
 			targets = (
 				0B7D18372DF222A3008CD0A5 /* Electricity Price */,
+				0BB97ABA2DF639F100B79F9F /* Price WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0B7D18362DF222A3008CD0A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BB97AB92DF639F100B79F9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +239,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BB97AB72DF639F100B79F9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0BB97ACC2DF639F300B79F9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0BB97ABA2DF639F100B79F9F /* Price WidgetExtension */;
+			targetProxy = 0BB97ACB2DF639F300B79F9F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0B7D18412DF222A5008CD0A5 /* Debug */ = {
@@ -184,6 +316,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -241,6 +374,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -256,6 +390,7 @@
 				DEVELOPMENT_TEAM = ADBPHJ3XXB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Electricity-Price-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,6 +419,7 @@
 				DEVELOPMENT_TEAM = ADBPHJ3XXB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Electricity-Price-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -296,6 +432,60 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Manan.Electricity-Price";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0BB97AD02DF639F300B79F9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ADBPHJ3XXB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Price Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Price Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Manan.Electricity-Price.Price-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0BB97AD12DF639F300B79F9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ADBPHJ3XXB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Price Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Price Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Manan.Electricity-Price.Price-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -319,6 +509,15 @@
 			buildConfigurations = (
 				0B7D18442DF222A5008CD0A5 /* Debug */,
 				0B7D18452DF222A5008CD0A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BB97ACF2DF639F300B79F9F /* Build configuration list for PBXNativeTarget "Price WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BB97AD02DF639F300B79F9F /* Debug */,
+				0BB97AD12DF639F300B79F9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

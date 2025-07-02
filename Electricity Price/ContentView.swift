@@ -8,22 +8,57 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @AppStorage("electricityPrice") var electricityPrice: Double = Double.nan
-    
+
+    @AppStorage("electricityPrice") var electricityPrice: Double?
+
+    var circleColor: Color {
+        guard let price = electricityPrice else {
+            return .gray
+        }
+        switch price {
+        case ..<5:
+            return .green
+        case 5..<10:
+            return .orange
+        default:
+            return .red
+        }
+    }
+
     var body: some View {
-        VStack {
-            Image(systemName: "bolt.fill")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("\(electricityPrice.isNaN ? "Fetching Price" : electricityPrice.formatted() + " cents")")
-                .task {
+        Circle()
+            .fill(circleColor)
+            .padding()
+            .onTapGesture {
+                Task {
                     await PriceFetcher.shared.updatePrice()
                 }
-        }
-        .padding()
+            }
+            .overlay(
+                VStack {
+                    Image(systemName: "bolt.fill")
+                        .font(.system(size: 70))
+                        .imageScale(.large)
+                        .foregroundStyle(.white)
+
+                    if electricityPrice != nil {
+                        Text("\(electricityPrice!.formatted())")
+                            .font(.largeTitle)
+                            .task {
+                                await PriceFetcher.shared.updatePrice()
+                            }
+                    } else {
+                        Text("Loading...")
+                            .font(.system(size: 100))
+                            .task {
+                                await PriceFetcher.shared.updatePrice()
+                            }
+                    }
+                }
+                .padding()
+            )
     }
-    
+
 }
 
 #Preview {
