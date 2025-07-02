@@ -26,7 +26,7 @@ struct Provider: TimelineProvider {
         if context.isPreview && !PriceFetcher.priceAvailable {
             price = "price"
         } else {
-            price = String(PriceFetcher.price ?? 0)
+            price = String(PriceFetcher.price)
         }
         let entry = Entry(date: Date(), price: price)
         completion(entry)
@@ -74,7 +74,7 @@ struct Price_Widget: Widget {
                         .containerBackground(.green, for: .widget)
                 case 5..<10:
                     Price_WidgetEntryView(entry: entry)
-                        .containerBackground(.yellow, for: .widget)
+                        .containerBackground(.orange, for: .widget)
                 default:
                     Price_WidgetEntryView(entry: entry)
                         .containerBackground(.red, for: .widget)

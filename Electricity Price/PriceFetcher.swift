@@ -15,12 +15,12 @@ struct PriceResponse: Decodable {
 
 class PriceFetcher {
     
-    static var price: Double? {
-        UserDefaults.standard.object(forKey: "electricityPrice") as? Double? ?? nil
+    static var price: Double {
+        UserDefaults.standard.double(forKey: "electricityPrice")
     }
     
     static var priceAvailable: Bool {
-        PriceFetcher.price != nil
+        !PriceFetcher.price.isNaN
     }
     
     static func fetchPrice() async -> Double {

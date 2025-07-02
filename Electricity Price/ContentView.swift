@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @AppStorage("electricityPrice") var electricityPrice: Double?
+    @AppStorage("electricityPrice") var electricityPrice = Double.nan
 
     var circleColor: Color {
-        guard let price = electricityPrice else {
+
+        switch electricityPrice {
+        case .nan:
             return .gray
-        }
-        switch price {
         case ..<5:
             return .green
         case 5..<10:
@@ -41,8 +41,8 @@ struct ContentView: View {
                         .imageScale(.large)
                         .foregroundStyle(.white)
 
-                    if electricityPrice != nil {
-                        Text("\(electricityPrice!.formatted())")
+                    if !electricityPrice.isNaN {
+                        Text("\(electricityPrice.formatted())")
                             .font(.largeTitle)
                             .task {
                                 await _ = PriceFetcher.fetchPrice()

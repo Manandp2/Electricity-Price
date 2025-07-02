@@ -10,10 +10,6 @@ import SwiftUI
 
 @main
 struct Electricity_PriceApp: App {
-    init() {
-        let _ = AppStorage<Double?>.init("electricityPrice")
-    }
-
     var body: some Scene {
         WindowGroup {
             ContentView()
