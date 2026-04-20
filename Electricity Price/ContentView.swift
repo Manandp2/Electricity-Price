@@ -9,10 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @AppStorage("electricityPrice") var electricityPrice = Double.nan
+    @AppStorage("electricityPrice", store: sharedDefaults) var electricityPrice = Double.nan
+    @AppStorage("electricityPriceLastUpdated", store: sharedDefaults) private var lastUpdatedInterval: Double = 0
+
+    private var lastUpdated: Date? {
+        lastUpdatedInterval > 0 ? Date(timeIntervalSinceReferenceDate: lastUpdatedInterval) : nil
+    }
 
     var circleColor: Color {
-
         switch electricityPrice {
         case .nan:
             return .gray
@@ -29,30 +33,35 @@ struct ContentView: View {
         Circle()
             .fill(circleColor)
             .padding()
+            .task {
+                await PriceFetcher.fetchPrice()
+            }
             .onTapGesture {
                 Task {
                     await PriceFetcher.fetchPrice()
                 }
             }
             .overlay(
-                VStack {
+                VStack(spacing: 8) {
                     Image(systemName: "bolt.fill")
                         .font(.system(size: 70))
-                        .imageScale(.large)
                         .foregroundStyle(.white)
 
-                    if !electricityPrice.isNaN {
-                        Text("\(electricityPrice.formatted())")
-                            .font(.largeTitle)
-                            .task {
-                                await _ = PriceFetcher.fetchPrice()
-                            }
+                    if electricityPrice.isNaN {
+                        ProgressView()
+                            .tint(.white)
+                            .scaleEffect(1.5)
                     } else {
-                        Text("Loading...")
-                            .font(.system(size: 100))
-                            .task {
-                                await _ = PriceFetcher.fetchPrice()
-                            }
+                        Text("\(electricityPrice.formatted())¢/kWh")
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundStyle(.white)
+
+                        if let lastUpdated {
+                            Text("Updated \(lastUpdated, style: .relative) ago")
+                                .font(.caption)
+                                .foregroundStyle(.white.opacity(0.8))
+                        }
                     }
                 }
                 .padding()

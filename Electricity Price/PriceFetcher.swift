@@ -6,34 +6,46 @@
 //
 
 import Foundation
-import BackgroundTasks
+
+let sharedDefaults = UserDefaults(suiteName: "group.mananpatel.ElectricityPrice") ?? .standard
 
 struct PriceResponse: Decodable {
     let price: String
     let millisUTC: String
 }
 
-class PriceFetcher {
-    
+enum PriceFetcher {
+
     static var price: Double {
-        UserDefaults.standard.double(forKey: "electricityPrice")
+        // UserDefaults returns 0.0 for missing keys, so we check for existence first
+        guard sharedDefaults.object(forKey: "electricityPrice") != nil else {
+            return Double.nan
+        }
+        return sharedDefaults.double(forKey: "electricityPrice")
     }
-    
+
+    static var lastUpdated: Date? {
+        guard sharedDefaults.object(forKey: "electricityPriceLastUpdated") != nil else {
+            return nil
+        }
+        let interval = sharedDefaults.double(forKey: "electricityPriceLastUpdated")
+        return Date(timeIntervalSinceReferenceDate: interval)
+    }
+
     static var priceAvailable: Bool {
-        !PriceFetcher.price.isNaN
+        !price.isNaN
     }
-    
+
+    @discardableResult
     static func fetchPrice() async -> Double {
         let url = URL(string: "https://hourlypricing.comed.com/api?type=currenthouraverage")!
-        
-        let (data, _ ) = try! await URLSession.shared.data(from: url)
-        
-        let price_response = try! JSONDecoder().decode([PriceResponse].self, from: data)[0]
-        
-        let price = Double(price_response.price) ?? Double.nan
-        if !price.isNaN {
-            UserDefaults.standard.set(price, forKey: "electricityPrice")
+        guard let (data, _) = try? await URLSession.shared.data(from: url),
+              let response = try? JSONDecoder().decode([PriceResponse].self, from: data).first,
+              let price = Double(response.price) else {
+            return Double.nan
         }
+        sharedDefaults.set(price, forKey: "electricityPrice")
+        sharedDefaults.set(Date().timeIntervalSinceReferenceDate, forKey: "electricityPriceLastUpdated")
         return price
     }
 }
