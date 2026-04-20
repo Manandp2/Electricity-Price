@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 100;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,14 +25,12 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		0BB97AD22DF639F300B79F9F /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 13;
+			dstSubfolder = PlugIns;
 			files = (
 				0BB97ACD2DF639F300B79F9F /* Price WidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -83,19 +81,15 @@
 /* Begin PBXFrameworksBuildPhase section */
 		0B7D18352DF222A3008CD0A5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0BB97AB82DF639F100B79F9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				0BB97AC02DF639F100B79F9F /* SwiftUI.framework in Frameworks */,
 				0BB97ABE2DF639F100B79F9F /* WidgetKit.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -150,8 +144,6 @@
 				0B7D183A2DF222A3008CD0A5 /* Electricity Price */,
 			);
 			name = "Electricity Price";
-			packageProductDependencies = (
-			);
 			productName = "Electricity Price";
 			productReference = 0B7D18382DF222A3008CD0A5 /* Electricity Price.app */;
 			productType = "com.apple.product-type.application";
@@ -166,14 +158,10 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			fileSystemSynchronizedGroups = (
 				0BB97AC12DF639F100B79F9F /* Price Widget */,
 			);
 			name = "Price WidgetExtension";
-			packageProductDependencies = (
-			);
 			productName = "Price WidgetExtension";
 			productReference = 0BB97ABB2DF639F100B79F9F /* Price WidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -205,7 +193,7 @@
 			);
 			mainGroup = 0B7D182F2DF222A3008CD0A5;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 100;
 			productRefGroup = 0B7D18392DF222A3008CD0A5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -219,34 +207,26 @@
 /* Begin PBXResourcesBuildPhase section */
 		0B7D18362DF222A3008CD0A5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0BB97AB92DF639F100B79F9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B7D18342DF222A3008CD0A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0BB97AB72DF639F100B79F9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -259,7 +239,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0B7D18412DF222A5008CD0A5 /* Debug */ = {
+		0B7D18412DF222A5008CD0A5 /* Debug configuration for PBXProject "Electricity Price" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -324,7 +304,7 @@
 			};
 			name = Debug;
 		};
-		0B7D18422DF222A5008CD0A5 /* Release */ = {
+		0B7D18422DF222A5008CD0A5 /* Release configuration for PBXProject "Electricity Price" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -382,7 +362,7 @@
 			};
 			name = Release;
 		};
-		0B7D18442DF222A5008CD0A5 /* Debug */ = {
+		0B7D18442DF222A5008CD0A5 /* Debug configuration for PBXNativeTarget "Electricity Price" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -412,7 +392,7 @@
 			};
 			name = Debug;
 		};
-		0B7D18452DF222A5008CD0A5 /* Release */ = {
+		0B7D18452DF222A5008CD0A5 /* Release configuration for PBXNativeTarget "Electricity Price" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -442,7 +422,7 @@
 			};
 			name = Release;
 		};
-		0BB97AD02DF639F300B79F9F /* Debug */ = {
+		0BB97AD02DF639F300B79F9F /* Debug configuration for PBXNativeTarget "Price WidgetExtension" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -470,7 +450,7 @@
 			};
 			name = Debug;
 		};
-		0BB97AD12DF639F300B79F9F /* Release */ = {
+		0BB97AD12DF639F300B79F9F /* Release configuration for PBXNativeTarget "Price WidgetExtension" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -504,28 +484,25 @@
 		0B7D18332DF222A3008CD0A5 /* Build configuration list for PBXProject "Electricity Price" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B7D18412DF222A5008CD0A5 /* Debug */,
-				0B7D18422DF222A5008CD0A5 /* Release */,
+				0B7D18412DF222A5008CD0A5 /* Debug configuration for PBXProject "Electricity Price" */,
+				0B7D18422DF222A5008CD0A5 /* Release configuration for PBXProject "Electricity Price" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		0B7D18432DF222A5008CD0A5 /* Build configuration list for PBXNativeTarget "Electricity Price" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B7D18442DF222A5008CD0A5 /* Debug */,
-				0B7D18452DF222A5008CD0A5 /* Release */,
+				0B7D18442DF222A5008CD0A5 /* Debug configuration for PBXNativeTarget "Electricity Price" */,
+				0B7D18452DF222A5008CD0A5 /* Release configuration for PBXNativeTarget "Electricity Price" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		0BB97ACF2DF639F300B79F9F /* Build configuration list for PBXNativeTarget "Price WidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0BB97AD02DF639F300B79F9F /* Debug */,
-				0BB97AD12DF639F300B79F9F /* Release */,
+				0BB97AD02DF639F300B79F9F /* Debug configuration for PBXNativeTarget "Price WidgetExtension" */,
+				0BB97AD12DF639F300B79F9F /* Release configuration for PBXNativeTarget "Price WidgetExtension" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
